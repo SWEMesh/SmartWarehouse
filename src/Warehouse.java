@@ -11,7 +11,6 @@ public class Warehouse {
         this.inventory = new HashMap<>();
         this.orderHistory = new ArrayList<>();
     }
-
     public void addProduct(Product product){
 
         inventory.put(product.getId(), product);
@@ -36,15 +35,18 @@ public class Warehouse {
 
         product.reduceStock(quantity);
         int orderId = orderHistory.size() + 1;
+
         Order order = new Order(orderId, customerName, product, quantity, OrderStatus.COMPLETED);
         orderHistory.add(order);
-        System.out.println("Order placed successfully for" + customerName);
+
+        System.out.println("Order placed successfully for " + customerName);
+
         return order;
     }
 
     public void printInventorySummary(){
 
-        System.out.println("=== Current Warehouse Inventory ===");
+        System.out.println("\n=== Current Warehouse Inventory ===");
 
         for (Product product : inventory.values()) {
 
@@ -52,9 +54,18 @@ public class Warehouse {
             System.out.println("ProductName:  "+ product.getName());
             System.out.println("Price: "+ product.getPrice());
             System.out.println("Remaining Stock: : "+ product.getStockQuantity());
+        }
+        }
+    public void printOrderHistory() {
+        System.out.println("\n=== Warehouse Orders ===");
+        for (Order order : orderHistory) {
+            System.out.println("Order #" + order.getOrderId() +
+                    " | Customer: " + order.getCustomerName() +
+                    " | Total: " + order.getTotalPrice() + " SAR" +
+                    " | Status: " + order.getStatus());
 
         }
     }
-
-
     }
+
+

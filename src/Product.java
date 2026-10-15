@@ -5,8 +5,6 @@ public class Product {
     private double price;
     private int stockQuantity;
 
-
-
 public Product(String id, String name, double price, int stockQuantity){
 
     this.id= id;
