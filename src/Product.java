@@ -50,14 +50,10 @@ public Product(String id, String name, double price, int stockQuantity){
     }
 
     public void addStock(int quantity){
-
         stockQuantity += quantity;
-
     }
 
-
     public void reduceStock(int quantity) {
-
         stockQuantity -= quantity;
 
     }
