@@ -62,5 +62,4 @@ public Product(String id, String name, double price, int stockQuantity){
 
     }
 
-
 }
