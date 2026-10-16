@@ -10,6 +10,7 @@ public class Main {
         warehouse.addProduct(product2);
 
         Order myOrder = warehouse.placeOrder("Meshal", "P101", 2);
+        myOrder.setStatus(OrderStatus.PENDING);
 
 
         try {
@@ -18,7 +19,14 @@ public class Main {
         } catch (OutOfStockException | IllegalArgumentException e){
             System.out.println("Order failed" + e.getMessage());
         }
+           try {
+               warehouse.placeOrder("Malik", "P101", 7);
 
+           } catch (OutOfStockException | IllegalArgumentException e) {
+               System.out.println("Order failed " + "[" + e.getMessage()+ " ]");
+           }
+
+        myOrder.setStatus(OrderStatus.COMPLETED);
         warehouse.printOrderHistory();
         warehouse.printInventorySummary();
 

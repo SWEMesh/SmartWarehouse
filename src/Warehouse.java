@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Warehouse {
+
     private Map<String, Product> inventory;
     private List<Order> orderHistory;
 
@@ -12,14 +13,13 @@ public class Warehouse {
         this.orderHistory = new ArrayList<>();
     }
     public void addProduct(Product product){
-
         inventory.put(product.getId(), product);
     }
 
     public Product getProduct(String productID){
-
        return inventory.get(productID);
     }
+
     public Order placeOrder(String customerName, String productId, int quantity){
         Product product = inventory.get(productId);
 
@@ -39,7 +39,7 @@ public class Warehouse {
         Order order = new Order(orderId, customerName, product, quantity, OrderStatus.COMPLETED);
         orderHistory.add(order);
 
-        System.out.println("Order placed successfully for " + customerName);
+        System.out.println("Order placed successfully for: " + customerName);
 
         return order;
     }
@@ -54,6 +54,7 @@ public class Warehouse {
             System.out.println("ProductName:  "+ product.getName());
             System.out.println("Price: "+ product.getPrice());
             System.out.println("Remaining Stock: : "+ product.getStockQuantity());
+            System.out.println("------------------------------------");
         }
         }
     public void printOrderHistory() {
